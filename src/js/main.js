@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 document.addEventListener("DOMContentLoaded", () => {
     //ul-element där data för meny ska skrivas ut
     const brunchList = document.getElementById("brunchList");
@@ -25,7 +25,9 @@ async function getFood(brunchList, dessertList) {
         //konverterar svaret från json
         let result = await response.json();
         //anropar printfunktion med resultat samt ul-listor för utskrift
+        let deletebtn = true;
         printFood(result, brunchList, dessertList);
+        printFood(result, brunchList, dessertList, deletebtn);
     } catch (error) {
         console.log(error);
     }
@@ -42,15 +44,51 @@ async function getDrinks(coldDrinkList, hotDrinkList){
         console.log(result);
         //anropar funktion med resultat samt element där data ska skrivas ut
         printDrinks(result, hotDrinkList, coldDrinkList);
+        
     } catch (error) {
         console.log(error);
     }
 
 }
 
+function printFoodSimple(foodData, category, foodList, hasDeleteButton) 
+{
+     foodData.forEach(food => {
+         //Om kategori är brunch - skriv ut i brunch meny lista
+        if (food.category === category) {
+            //om description finns med , skriv ut den också
+            if (food.description) {
+                foodList.innerHTML += `
+                <li>
+                    <span class="item">${food.name}</span>
+                    <span class="price">${food.price}:-</span>
+                    <span class="description">${food.description}</span>
+                </li>`;
+
+            } else {
+                //om description inte finns med - skriv bara ut name och price
+                foodList.innerHTML += `
+                <li>
+                    <span class="item">${food.name}</span>
+                    <span class="price">${food.price}:-</span>
+                </li>`;
+            }
+        }
+        if (hasDeleteButton) {
+            foodList.innerHTML += fdsdfsd;
+        }
+    })
+}
+
 //skriver ut data från food tabell
-function printFood(foodData, brunchList, dessertList) {
+function printFood(foodData, brunchList, dessertList, deletebtn) {
     console.log(foodData);
+    //test deletebtn
+    if(deletebtn)
+        {console.log(true);
+
+        }else{ console.log(false);}
+
       //loopar igenom array innehållandes objekt 
     foodData.forEach(food => {
          //Om kategori är brunch - skriv ut i brunch meny lista
@@ -62,7 +100,7 @@ function printFood(foodData, brunchList, dessertList) {
                     <span class="item">${food.name}</span>
                     <span class="price">${food.price}:-</span>
                     <span class="description">${food.description}</span>
-                </li>`
+                </li>`;
 
             } else {
                 //om description inte finns med - skriv bara ut name och price
@@ -70,7 +108,7 @@ function printFood(foodData, brunchList, dessertList) {
                 <li>
                     <span class="item">${food.name}</span>
                     <span class="price">${food.price}:-</span>
-                </li>`
+                </li>`;
             }
 
         }
@@ -152,3 +190,4 @@ function printDrinks(drinkData, hotDrinkList, coldDrinkList) {
         }
     });
 }
+*/
