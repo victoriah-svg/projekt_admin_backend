@@ -12,7 +12,8 @@
 
 <body>
   <header id="headerNav" class="topnav">
-   <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo"> <span>Admin</span></a>
+    <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo">
+      <span>Admin</span></a>
     <!--hamburgerikon-->
     <div id="hamburger">
       <img src="/Images/menuebar_black.svg" alt="meny">
@@ -28,23 +29,57 @@
       </ul>
     </nav>
   </header>
-  
-  <main>
+
+  <main id="mainHome">
+    <h1>Welcome to the admin page!</h1>
+    <section id="navSectionHome">
+      <h2>What would you like to do?</h2>
+      <a href="/addmenu">Add new item to the menu <i class="fa-solid fa-angle-right"></i></a>
+      <a href="/deletemenu">Update / delete menu item <i class="fa-solid fa-angle-right"></i></a>
+      <a href="/bookings">See table booking requests <i class="fa-solid fa-angle-right"></i></a>
+      <a href="/messages">See messages <i class="fa-solid fa-angle-right"></i></a>
+    </section>
+
+    <section>
+      <h2>Current menu</h2>
+      <section>
+        <h3>From 9:00 - 15:00</h3>
+        <section>
+          <h4>Brunch</h4>
+          <div id="brunchDiv"></div>
+        </section>
+      </section>
+      <section>
+        <h3>All day</h3>
+        <section>
+          <h4>Cold drinks</h4>
+          <div id="coldDrinkDiv"></div>
+        </section>
+        <section>
+          <h4>Hot drinks</h4>
+          <div id="hotDrinkDiv"></div>
+        </section>
+        <section>
+          <h4>Desserts</h4>
+          <div id="dessertDiv"></div>
+        </section>
+      </section>
+    </section>
 
   </main>
   <footer>
     <section>
-      <p><b>&copy; Cats & Coffee Admin</b></p>
-      <a href="">Go to visitor webpage(opens in new tab)</a>
+      <p><strong>&copy; Cats & Coffee Admin</strong></p>
+      <a href="">Go to visitor webpage (opens in new tab)</a>
     </section>
     <div>
       <p>Our accounts: </p>
-      <span aria-label="facebook">
+      <a href="#" aria-label="Facebook">
         <i class="fa-brands fa-facebook fa-2xl" aria-hidden="true"></i>
-      </span>
-      <span aria-label="instagram">
+      </a>
+      <a href="#" aria-label="instagram">
         <i class="fa-brands fa-instagram fa-2xl" aria-hidden="true"></i>
-      </span>
+      </a>
     </div>
   </footer>
   <script type="module" src="/src/js/main.js"></script>
