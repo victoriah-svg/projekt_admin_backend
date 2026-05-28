@@ -1,0 +1,59 @@
+@use "base";
+
+/*-------Desktopläge-------*/
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+
+}
+
+/*---Header---*/
+
+#hamburger {
+    display: none;
+}
+
+#header {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    
+
+}
+
+nav ul {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto auto auto auto auto auto;
+    justify-items: center;
+
+}
+
+#logo {
+    width: 100%;
+    display: block;
+    justify-self: right;
+}
+
+#logoLink{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto auto;
+    justify-self: center;
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+#logoLink span{
+    align-self: center;
+    background-color: base.$box-color3;
+    padding: 10px;
+    border-radius: 50%;
+    
+}
+
+#logoLink{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
