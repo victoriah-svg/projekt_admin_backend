@@ -63,7 +63,7 @@ async function loginUser(e) {
 
         } catch (error) {
             //skriv ut felmeddelande till dom
-            errorDiv.innerHTML = "Felaktigt användarnamn eller lösenord";
+            errorDiv.innerHTML = "Inaccurate username or password";
         }
     }
 
