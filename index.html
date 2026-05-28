@@ -6,14 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cats & Coffee admin</title>
   <link rel="stylesheet" href="/src/CSS/main.scss">
+  <!--fontawesome ikoner-kit-->
+  <script src="https://kit.fontawesome.com/b5ebcdff90.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <header id="headerNav" class="topnav">
+   <a href="/"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo"> Admin</a>
+    <!--hamburgerikon-->
+    <div id="hamburger">
+      <img src="/Images/menuebar_black.svg" alt="meny">
+    </div>
+    <nav>
+      <ul id="menu" class="nav-links">
+        <li><a href="/" class="active">Start</a></li>
+        <li><a href="/deletemenu">Delete | Update menu</a></li>
+        <li><a href="/addmenu">Add menu</a></li>
+        <li><a href="/messages">Messages</a></li>
+        <li><a href="/bookings">Bookings</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
   <header></header>
   <main>
 
   </main>
-
+  <footer>
+    <section>
+      <p><b>&copy; Cats & Coffee Admin</b></p>
+      <a href="">Go to visitor webpage(opens in new tab)</a>
+    </section>
+    <div>
+      <p>Follow us: </p>
+      <span aria-label="facebook">
+        <i class="fa-brands fa-facebook fa-2xl" aria-hidden="true"></i>
+      </span>
+      <span aria-label="instagram">
+        <i class="fa-brands fa-instagram fa-2xl" aria-hidden="true"></i>
+      </span>
+    </div>
+  </footer>
   <script type="module" src="/src/js/main.js"></script>
 </body>
 
