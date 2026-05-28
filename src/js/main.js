@@ -1,193 +1,35 @@
-/*"use strict";
+"use strict";
 document.addEventListener("DOMContentLoaded", () => {
-    //ul-element där data för meny ska skrivas ut
-    const brunchList = document.getElementById("brunchList");
-    const coldDrinkList = document.getElementById("coldDrinkList");
-    const hotDrinkList = document.getElementById("hotDrinkList");
-    const dessertList = document.getElementById("dessertList");
-
-    //om ul-lista för brunch och dessert finns, anropa funktion som hämtar data från food
-    if (brunchList && dessertList) {
-        getFood(brunchList, dessertList)
-    }
-
-    if(coldDrinkList && hotDrinkList){
-        getDrinks(coldDrinkList, hotDrinkList);
-    }
-
+    //anropar funktion som ändrar logga in länk i menyn
+    changeNavLink();
 });
 
-//hämtar data från food-tabell
-async function getFood(brunchList, dessertList) {
-    try {
-        //Hämtar alla maträtter
-        let response = await fetch("http://localhost:3000/food");
-        //konverterar svaret från json
-        let result = await response.json();
-        //anropar printfunktion med resultat samt ul-listor för utskrift
-        let deletebtn = true;
-        printFood(result, brunchList, dessertList);
-        printFood(result, brunchList, dessertList, deletebtn);
-    } catch (error) {
-        console.log(error);
-    }
-}
+//ändra meny mellan login/ log out
+function changeNavLink() {
+//li-element i nav för login
+const loginLink = document.getElementById("loginLink");
 
-//hämtar data från drink-tabell
-async function getDrinks(coldDrinkList, hotDrinkList){
-
-    try {
-        //Hämtar all dryck
-        let response = await fetch("http://localhost:3000/drink");
-        //konverterar svaret från json
-        let result = await response.json();
-        console.log(result);
-        //anropar funktion med resultat samt element där data ska skrivas ut
-        printDrinks(result, hotDrinkList, coldDrinkList);
-        
-    } catch (error) {
-        console.log(error);
+//om token finns i localStorage - användare inloggad - ändra till logout i meny
+    if (localStorage.getItem("cv_token")) {
+        loginLink.innerHTML = `
+        <button id="logout">Logga ut</button>
+        `;
+    } else {
+        //annars ändra till login
+        loginLink.innerHTML = `
+        <a href="/login">Log in</a>
+        `;
     }
 
+    //Logga ut knapp
+    const logoutBtn = document.getElementById("logout");
+
+    //om logga-ut-knapp finns - lyssna på klick och ta bort token ur localStorage samt dirigera om till loginsidan
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            console.log("Logga ut");
+            localStorage.removeItem("cv_token");
+            window.location.href = "login.html";
+        });
+    }
 }
-
-function printFoodSimple(foodData, category, foodList, hasDeleteButton) 
-{
-     foodData.forEach(food => {
-         //Om kategori är brunch - skriv ut i brunch meny lista
-        if (food.category === category) {
-            //om description finns med , skriv ut den också
-            if (food.description) {
-                foodList.innerHTML += `
-                <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
-                    <span class="description">${food.description}</span>
-                </li>`;
-
-            } else {
-                //om description inte finns med - skriv bara ut name och price
-                foodList.innerHTML += `
-                <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
-                </li>`;
-            }
-        }
-        if (hasDeleteButton) {
-            foodList.innerHTML += fdsdfsd;
-        }
-    })
-}
-
-//skriver ut data från food tabell
-function printFood(foodData, brunchList, dessertList, deletebtn) {
-    console.log(foodData);
-    //test deletebtn
-    if(deletebtn)
-        {console.log(true);
-
-        }else{ console.log(false);}
-
-      //loopar igenom array innehållandes objekt 
-    foodData.forEach(food => {
-         //Om kategori är brunch - skriv ut i brunch meny lista
-        if (food.category === "brunch") {
-            //om description finns med , skriv ut den också
-            if (food.description) {
-                brunchList.innerHTML += `
-                <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
-                    <span class="description">${food.description}</span>
-                </li>`;
-
-            } else {
-                //om description inte finns med - skriv bara ut name och price
-                brunchList.innerHTML += `
-                <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
-                </li>`;
-            }
-
-        }
-
-        //Om kategori är dessert - skriv ut i desserlistan
-        if (food.category === "dessert") {
-            //Om description finns med - skriv ut den också
-            if (food.description) {
-                dessertList.innerHTML += `
-                <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
-                    <span class="description">${food.description}</span>
-                </li>`
-
-            } else {
-                //Annars skriv bara ut name och price
-                dessertList.innerHTML += `
-                <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
-                </li>`
-            }
-
-        }
-
-
-    });
-}
-
-
-//Skriver ut data från drinktabell
-function printDrinks(drinkData, hotDrinkList, coldDrinkList) {
-   
-
-    //loopar igenom drink-array
-    drinkData.forEach(drink => {
-
-        //om kategori är hot drink
-        if (drink.category === "hot drink") {
-            //Om description finns med - skriv ut den också
-            if (drink.description) {
-                hotDrinkList.innerHTML += `
-                <li>
-                    <span class="item">${drink.name}</span>
-                    <span class="price">${drink.price}:-</span>
-                    <span class="description">${drink.description}</span>
-                </li>`
-
-            } else {
-                //Annars skriv bara ut name och price
-                hotDrinkList.innerHTML += `
-                <li>
-                    <span class="item">${drink.name}</span>
-                    <span class="price">${drink.price}:-</span>
-                </li>`
-            }
-        }
-
-        //om kategori är cold drink
-        if (drink.category === "cold drink") {
-            //Om description finns med - skriv ut den också
-            if (drink.description) {
-                coldDrinkList.innerHTML += `
-                <li>
-                    <span class="item">${drink.name}</span>
-                    <span class="price">${drink.price}:-</span>
-                    <span class="description">${drink.description}</span>
-                </li>`
-
-            } else {
-                //Annars skriv bara ut name och price
-                coldDrinkList.innerHTML += `
-                <li>
-                    <span class="item">${drink.name}</span>
-                    <span class="price">${drink.price}:-</span>
-                </li>`
-            }
-        }
-    });
-}
-*/
