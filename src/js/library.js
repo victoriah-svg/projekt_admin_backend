@@ -29,33 +29,34 @@ export async function getDrinks() {
     }
 }
 
-//Skriver ut food data i DOM
-export function printFood(foodData, category, foodList, hasDeleteButton) {
-    foodData.forEach(food => {
-        //Om kategori är samma som den som skickats med - skriv ut i den foodList som skickats med
-        if (food.category === category) {
+
+//Skriver ut data i meny
+export function printMenu(menuData, category, menuList, hasDeleteButton) {
+    menuData.forEach(item => {
+        //Om kategori är samma som den som skickats med - skriv ut i den den menuList som skickats med
+        if (item.category === category) {
             //om description finns med , skriv ut den också
-            if (food.description) {
-                foodList.innerHTML += `
+            if (item.description) {
+                menuList.innerHTML += `
                 <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
-                    <span class="description">${food.description}</span>
+                    <span class="item">${item.name}</span>
+                    <span class="price">${item.price}:-</span>
+                    <span class="description">${item.description}</span>
                 </li>`;
 
             } else {
                 //om description inte finns med - skriv bara ut name och price
-                foodList.innerHTML += `
+                menuList.innerHTML += `
                 <li>
-                    <span class="item">${food.name}</span>
-                    <span class="price">${food.price}:-</span>
+                    <span class="item">${item.name}</span>
+                    <span class="price">${item.price}:-</span>
                 </li>`;
             }
             //om deletebtn = true så skriv ut knappar för delete och update 
             if (hasDeleteButton) {
-                foodList.innerHTML += `
-            <i class="fa-solid fa-trash"></i><button class="${food._id}">Delete</button>
-            <i class="fa-solid fa-pen"></i><button class="${food._id}">Update</button>
+                menuList.innerHTML += `
+            <i class="fa-solid fa-trash"></i><button class="${item._id}">Delete</button>
+            <i class="fa-solid fa-pen"></i><button class="${item._id}">Update</button>
             `;
 
             }

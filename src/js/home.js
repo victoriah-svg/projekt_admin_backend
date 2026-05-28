@@ -1,6 +1,8 @@
 "use strict";
-import { getFood, printFood } from "./library";
+import { getFood } from "./library";
+//import { printFood } from "./library";
 import { getDrinks } from "./library";
+import { printMenu } from "./library";
 
 
 
@@ -18,7 +20,10 @@ document.addEventListener("DOMContentLoaded", async() => {
     let allDrinks = await getDrinks();
     //variabel som skickas med som argument i anrop av printFood från library.js
     let brunch = "brunch";
+    let coldDrink = "cold drink";
     //anropar printFood från library.js med data som hämtats från getFood, samt argument för att skriva ut i brunchlist
-    let callPrintFood = printFood(allFood, brunch, brunchList, true);
+    let callPrintFood = printMenu(allFood, brunch, brunchList, false);
+
+    let callPrintMenu = printMenu(allDrinks, coldDrink, coldDrinkList, false);
     
 });
