@@ -57,3 +57,12 @@ nav ul {
     color: black;
     font-weight: bold;
 }
+
+/*---Footer---*/
+footer {
+    padding: 2rem;
+    padding-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+}
