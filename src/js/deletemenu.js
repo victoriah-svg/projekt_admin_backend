@@ -32,3 +32,5 @@ document.addEventListener("DOMContentLoaded", async()=>{
     printMenu(allDrinks, hotDrink, hotDrinkList, true);
     
 });
+
+//lägg till deletefunktion för food och drink
