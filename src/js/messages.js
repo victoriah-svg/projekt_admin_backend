@@ -30,6 +30,7 @@ async function getMessages() {
             <article>
                 <p><strong>Name: </strong>${message.name}</p><p><strong>Email: </strong>${message.email}</p>
                 <p>${message.message}</p>
+                <button class="deletebtn">delete</button>
             </article>`;
         });
 
