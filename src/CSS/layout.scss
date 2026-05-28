@@ -194,4 +194,15 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    /*---Footer---*/
+    footer{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        row-gap: 20px;
+    }
+
+    footer a{
+        font-size: 0.9rem;
+    }
 }
