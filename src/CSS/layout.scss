@@ -66,3 +66,132 @@ footer {
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
 }
+
+/*tabletläge*/
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    /*---Meny---*/
+
+    #logoLink {
+        width: 70%;
+    }
+
+    #hamburger {
+        display: block;
+        justify-self: flex-end;
+        padding-right: 1rem;
+    }
+
+    #hamburger img {
+        width: 100%;
+        max-width: 40px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .topnav.responsive .nav-links {
+        display: flex;
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        row-gap: 20px;
+    }
+
+
+    .topnav.responsive.nav-links li {
+        justify-self: center;
+        width: 50%;
+
+    }
+
+    .active {
+        background-color: base.$bg-color;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        color: black;
+        text-decoration: underline;
+    }
+
+    .topnav nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    .topnav.responsive {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+/*-----------Mobilläge--------------*/
+
+@media screen and (max-width: 600px) {
+
+    /*---Meny---*/
+
+    #logoLink {
+        width: 90%;
+    }
+
+    #logoLink span{
+        font-size: 0.5rem;
+    }
+
+    #hamburger {
+        display: block;
+        justify-self: flex-end;
+        padding-right: 1rem;
+    }
+
+    #hamburger img {
+        width: 100%;
+        max-width: 40px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .topnav.responsive .nav-links {
+        display: flex;
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        row-gap: 20px;
+    }
+
+
+    .topnav.responsive.nav-links li {
+        justify-self: center;
+        width: 50%;
+
+    }
+
+    .active {
+        background-color: base.$bg-color;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        color: black;
+        text-decoration: underline;
+    }
+
+    .topnav nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    .topnav.responsive {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
