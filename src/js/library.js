@@ -105,26 +105,6 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
 
 }
 
-/*export async function updateMenu(menuItem, updateDiv){
-        updateDiv.innerHTML="";
-        updateDiv.innerHTML =`
-           <h2>Chosen item: </h2>
-           <p>${menuItem.name }  - ${menuItem.price}:- </p>
-           <form>
-                    <label for="nameUpdate">Name: </label>
-                    <input type="text" name="" id="nameUpdate">
-                    <label for="categoryUpdate">Category: </label>
-                    <select name="categoryUpdate" id="categoryUpdate">
-                        <option value="brunch">brunch</option>
-                        <option value="dessert">dessert</option>
-                    </select>
-                    <label for="priceUpdate">Price: </label>
-                    <input type="text" id="priceUpdate">
-                    <label for="descriptionUpdate">description (optional)</label>
-                    <input type="text" id="descriptionUpdate">
-                </form>`;
-        
-    }*/
 
 
 
