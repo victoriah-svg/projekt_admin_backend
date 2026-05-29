@@ -32,6 +32,7 @@ export async function getDrinks() {
 
 //Skriver ut data i meny
 export function printMenu(menuData, category, menuList, hasDeleteButton) {
+
     menuData.forEach(item => {
         //Om kategori är samma som den som skickats med - skriv ut i den den menuList som skickats med
         if (item.category === category) {
@@ -55,12 +56,22 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
             //om deletebtn = true så skriv ut knappar för delete och update 
             if (hasDeleteButton) {
                 menuList.innerHTML += `
-            <i class="fa-solid fa-trash"></i><button class="${item._id}">Delete</button>
-            <i class="fa-solid fa-pen"></i><button class="${item._id}">Update</button>
+            <i class="fa-solid fa-trash"></i><button data-id="${item._id}" class="deletebtn_${category}" id="delete_${item._id}">Delete</button>
+            <i class="fa-solid fa-pen"></i><button data-id="${item._id}" class="updatebtn">Update</button>
             `;
 
+
             }
+
+
+
         }
 
+
+
     });
+
+
+
 }
+
