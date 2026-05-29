@@ -4,6 +4,7 @@ import { getFood } from "./library";
 import { getDrinks } from "./library";
 import { printMenu } from "./library";
 import { getOneFoodItem } from "./library";
+import { getOneDrinkItem } from "./library";
 
 
 document.addEventListener("DOMContentLoaded", async () => {

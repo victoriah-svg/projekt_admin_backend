@@ -16,16 +16,13 @@ export async function getFood() {
 
 //hämtar data med specifikt id från food-tabell
 export async function getOneFoodItem(id){
-    console.log(id);
-    //console.log(updateDiv);
+    
     try {
         //Hämtar maträtt med specifikt id som skickats med
         let response = await fetch(`http://localhost:3000/food/${id}`);
         //konverterar svaret från json
         let result = await response.json();
-        //console.log(result[0].name);
         //returnerar objektet som finns i arrayen result
-       // updateMenu(result[0], updateDiv);
         return result[0];
     } catch (error) {
         console.log(error);
@@ -46,6 +43,21 @@ export async function getDrinks() {
         console.log(error);
     }
 }
+
+//hämtar data med specifikt id från drink-tabell
+export async function getOneDrinkItem(id){
+    
+    try {
+        //Hämtar maträtt med specifikt id som skickats med
+        let response = await fetch(`http://localhost:3000/food/${id}`);
+        //konverterar svaret från json
+        let result = await response.json();
+        //returnerar objektet som finns i arrayen result
+        return result[0];
+    } catch (error) {
+        console.log(error);
+    }
+ }
 
 
 //Skriver ut data i meny
