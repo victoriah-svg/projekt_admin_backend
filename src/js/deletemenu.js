@@ -113,7 +113,7 @@ function attachUpdateListeners() {
 
     //loopar igenom brunchknappar och lyssnar efter klick
     updateBtnsBrunch.forEach(btn => {
-        // console.log(btn);
+        
         btn.addEventListener("click", async () => {
             //anropar funktion som hämtar food med id som skickats med
             let foodItem = await getOneFoodItem(btn.dataset.id);
@@ -128,6 +128,8 @@ function attachUpdateListeners() {
             }
             //sparar objektet i localStorage
             localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
+            //locate till updatemenu sidan
+            window.location.href = "updatemenu.html";
         });
     });
 
@@ -149,32 +151,56 @@ function attachUpdateListeners() {
             }
             //sparar objektet i localStorage
             localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
-            //deleteMenuItem(table, btn.dataset.id);
+            //locate till updatemenu sidan
+            window.location.href = "updatemenu.html";
         });
     });
 
     //loopar igenom cold drinks knappar och lyssnar efter klick
     updateBtnsColdDrinks.forEach(btn => {
-        //console.log(btn);
-        btn.addEventListener("click", () => {
-            //namn på tabell som skickas med som argument i deleteMenuItem
-            let table = "drink";
-            console.log("du klickade på update knappen " + btn.dataset.id);
-            //console.log("du klickade på knappen " + btn.dataset.id);
-            //deleteMenuItem(table, btn.dataset.id);
+        
+        btn.addEventListener("click", async() => {
+            //anropar funktion som hämtar food med id som skickats med
+            let drinkItem = await getOneDrinkItem(btn.dataset.id);
+            
+            //lagrar datan som hämtats från getOneFoodItem i ett objekt
+            let fetchedItem = {
+                id: drinkItem._id,
+                name: drinkItem.name,
+                category: drinkItem.category,
+                price: drinkItem.price,
+                table: "drink"
+
+            }
+            //sparar objektet i localStorage
+            localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
+            //locate till updatemenu sidan
+            window.location.href = "updatemenu.html";
         });
     })
 
     //loopar igenom hot drinks knappar och lyssnar efter klick
     updateBtnsHotDrinks.forEach(btn => {
         //console.log(btn);
-        btn.addEventListener("click", () => {
-            let table = "drink";
-            console.log("du klickade på update knappen " + btn.dataset.id);
-            // console.log("du klickade på knappen " + btn.dataset.id);
-            //deleteMenuItem(table, btn.dataset.id);
+        btn.addEventListener("click", async() => {
+            //anropar funktion som hämtar food med id som skickats med
+            let drinkItem = await getOneDrinkItem(btn.dataset.id);
+            
+            //lagrar datan som hämtats från getOneFoodItem i ett objekt
+            let fetchedItem = {
+                id: drinkItem._id,
+                name: drinkItem.name,
+                category: drinkItem.category,
+                price: drinkItem.price,
+                table: "drink"
+
+            }
+            //sparar objektet i localStorage
+            localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
+            //locate till updatemenu sidan
+            window.location.href = "updatemenu.html";
         });
-    })
+    });
 
 
 
