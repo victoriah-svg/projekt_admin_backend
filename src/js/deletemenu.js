@@ -5,31 +5,45 @@ import { getDrinks } from "./library";
 import { printMenu } from "./library";
 
 document.addEventListener("DOMContentLoaded", async () => {
+   
+
+    //anropar getFood funktion som importerats från library.js
+    let allFood = await getFood();
+    //anropar getDrinks funktion som importerats från library.js
+    let allDrinks = await getDrinks();
+
+    //anropar funktion som renderar meny
+    renderMenu(allFood, allDrinks);
+    
+});
+
+//RenderMenu funktion 
+function renderMenu(food, drinks) {
     //ul-element där data för meny ska skrivas ut
     const brunchList = document.getElementById("brunchListDelete");
     const coldDrinkList = document.getElementById("coldDrinkListDelete");
     const hotDrinkList = document.getElementById("hotDrinkListDelete");
     const dessertList = document.getElementById("dessertListDelete");
 
-    //anropar getFood funktion som importerats från library.js
-    let allFood = await getFood();
-    //anropar getDrinks funktion som importerats från library.js
-    let allDrinks = await getDrinks();
-    //variabler som skickas med som argument i anrop av printFood från library.js
-    let brunch = "brunch";
-    let dessert = "dessert";
-    let coldDrink = "cold drink";
-    let hotDrink = "hot drink";
-
+    //tömmer listor mellan varje omgång
+    brunchList.innerHTML = "";
+    coldDrinkList.innerHTML = "";
+    hotDrinkList.innerHTML = "";
+    dessertList.innerHTML = "";
 
     //anropar printFood från library.js med data som hämtats från getFood, samt argument för att skriva ut i brunchlist
-    printMenu(allFood, brunch, brunchList, true);
+    printMenu(food, "brunch", brunchList, true);
     //anropar printFood för dessert
-    printMenu(allFood, dessert, dessertList, true);
+    printMenu(food, "dessert", dessertList, true);
     //anropar printFood för kalla drycker
-    printMenu(allDrinks, coldDrink, coldDrinkList, true);
+    printMenu(drinks, "cold drink", coldDrinkList, true);
     //anropar printFood för varma drycker
-    printMenu(allDrinks, hotDrink, hotDrinkList, true);
+    printMenu(drinks, "hot drink", hotDrinkList, true);
+
+    attachDeleteListeners();
+}
+
+function attachDeleteListeners(){
 
     //deleteknappar där klasser är deras kategori (brunch, dessert, cold eller hot)
     let deleteBtnsBrunch = document.querySelectorAll(".deletebtn_brunch");
@@ -37,40 +51,79 @@ document.addEventListener("DOMContentLoaded", async () => {
     let deleteBtnsColdDrinks = document.querySelectorAll(".deletebtn_cold");
     let deleteBtnsHotDrinks = document.querySelectorAll(".deletebtn_hot");
 
-    
+
     //loopar igenom brunchknappar och lyssnar efter klick
     deleteBtnsBrunch.forEach(btn => {
-        console.log(btn);
+        // console.log(btn);
         btn.addEventListener("click", () => {
-            console.log("du klickade på knappen " + btn.dataset.id);
+            let table = "food";
+            //console.log("du klickade på knappen " + btn.dataset.id);
+            deleteMenuItem(table, btn.dataset.id);
         });
     });
 
     //loopar igenom dessertknappar och lyssnar efter klick
-    deleteBtnsDesserts.forEach(btn =>{
-        console.log(btn);
+    deleteBtnsDesserts.forEach(btn => {
+        //console.log(btn);
         btn.addEventListener("click", () => {
-            console.log("du klickade på knappen " + btn.dataset.id);
+            let table = "food";
+            deleteMenuItem(table, btn.dataset.id);
         });
     })
 
     //loopar igenom cold drinks knappar och lyssnar efter klick
-    deleteBtnsColdDrinks.forEach(btn =>{
-        console.log(btn);
+    deleteBtnsColdDrinks.forEach(btn => {
+        //console.log(btn);
         btn.addEventListener("click", () => {
-            console.log("du klickade på knappen " + btn.dataset.id);
+            //namn på tabell som skickas med som argument i deleteMenuItem
+            let table = "drink";
+            //console.log("du klickade på knappen " + btn.dataset.id);
+            deleteMenuItem(table, btn.dataset.id);
         });
     })
 
     //loopar igenom hot drinks knappar och lyssnar efter klick
-    deleteBtnsHotDrinks.forEach(btn =>{
-        console.log(btn);
+    deleteBtnsHotDrinks.forEach(btn => {
+        //console.log(btn);
         btn.addEventListener("click", () => {
-            console.log("du klickade på knappen " + btn.dataset.id);
+            let table = "drink";
+            // console.log("du klickade på knappen " + btn.dataset.id);
+            deleteMenuItem(table, btn.dataset.id);
         });
     })
-    
-    
-});
 
+
+
+}
+
+
+
+//funktion för att radera item från menyn
+async function deleteMenuItem(table, itemId) {
+    console.log("du klickade på knappen" + itemId + table);
+
+    //hämta in token 
+    const token = localStorage.getItem("cv_token");
+    try {
+        //tar bort ett meddelande med ett visst id
+        const response = await fetch(`http://localhost:3000/${table}/${itemId}`, {
+            method: "DELETE",
+            headers: {
+                "authorization": "Bearer " + token,
+                "content-type": "application/json"
+
+            }
+        });
+        //lagrar resultatet
+        const result = await response.json();
+        let newGetDrinks = await getDrinks();
+        let newGetFood = await getFood();
+
+        //anropar render-funktion för att rendera om sidan
+        renderMenu(newGetFood, newGetDrinks);
+
+    } catch (error) {
+        console.log("Something went wrong " + error);
+    }
+}
 //lägg till deletefunktion för food och drink
