@@ -3,6 +3,7 @@
 import { getFood } from "./library";
 import { getDrinks } from "./library";
 import { printMenu } from "./library";
+import { getOneFoodItem } from "./library";
 
 document.addEventListener("DOMContentLoaded", async () => {
    
@@ -111,10 +112,12 @@ function attachUpdateListeners(){
     //loopar igenom brunchknappar och lyssnar efter klick
     updateBtnsBrunch.forEach(btn => {
         // console.log(btn);
-        btn.addEventListener("click", () => {
+        btn.addEventListener("click", async() => {
             let table = "food";
            console.log("du klickade på update knappen " + btn.dataset.id);
-            //deleteMenuItem(table, btn.dataset.id);
+           let foodItem = await getOneFoodItem(btn.dataset.id);
+           console.log(foodItem);
+            //getOneFoodItem(btn.dataset.id);
         });
     });
 
