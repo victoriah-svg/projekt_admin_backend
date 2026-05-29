@@ -41,8 +41,10 @@ function renderMenu(food, drinks) {
     printMenu(drinks, "hot drink", hotDrinkList, true);
 
     attachDeleteListeners();
+    attachUpdateListeners();
 }
 
+//funktion som lägger till eventlyssnare deleteknappar
 function attachDeleteListeners(){
 
     //deleteknappar där klasser är deras kategori (brunch, dessert, cold eller hot)
@@ -89,6 +91,63 @@ function attachDeleteListeners(){
             let table = "drink";
             // console.log("du klickade på knappen " + btn.dataset.id);
             deleteMenuItem(table, btn.dataset.id);
+        });
+    })
+
+
+
+}
+
+//funktion som lägger till eventlyssnare deleteknappar
+function attachUpdateListeners(){
+
+    //deleteknappar där klasser är deras kategori (brunch, dessert, cold eller hot)
+    let updateBtnsBrunch = document.querySelectorAll(".updatebtn_brunch");
+    let updateBtnsDesserts = document.querySelectorAll(".updatebtn_dessert");
+    let updateBtnsColdDrinks = document.querySelectorAll(".updatebtn_cold");
+    let updateBtnsHotDrinks = document.querySelectorAll(".updatebtn_hot");
+
+
+    //loopar igenom brunchknappar och lyssnar efter klick
+    updateBtnsBrunch.forEach(btn => {
+        // console.log(btn);
+        btn.addEventListener("click", () => {
+            let table = "food";
+           console.log("du klickade på update knappen " + btn.dataset.id);
+            //deleteMenuItem(table, btn.dataset.id);
+        });
+    });
+
+    //loopar igenom dessertknappar och lyssnar efter klick
+   updateBtnsDesserts.forEach(btn => {
+        //console.log(btn);
+        btn.addEventListener("click", () => {
+            let table = "food";
+            console.log("du klickade på update knappen " + btn.dataset.id);
+            //deleteMenuItem(table, btn.dataset.id);
+        });
+    })
+
+    //loopar igenom cold drinks knappar och lyssnar efter klick
+    updateBtnsColdDrinks.forEach(btn => {
+        //console.log(btn);
+        btn.addEventListener("click", () => {
+            //namn på tabell som skickas med som argument i deleteMenuItem
+            let table = "drink";
+            console.log("du klickade på update knappen " + btn.dataset.id);
+            //console.log("du klickade på knappen " + btn.dataset.id);
+            //deleteMenuItem(table, btn.dataset.id);
+        });
+    })
+
+    //loopar igenom hot drinks knappar och lyssnar efter klick
+    updateBtnsHotDrinks.forEach(btn => {
+        //console.log(btn);
+        btn.addEventListener("click", () => {
+            let table = "drink";
+            console.log("du klickade på update knappen " + btn.dataset.id);
+            // console.log("du klickade på knappen " + btn.dataset.id);
+            //deleteMenuItem(table, btn.dataset.id);
         });
     })
 
