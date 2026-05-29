@@ -12,7 +12,8 @@
 
 <body>
   <header id="headerNav" class="topnav">
-   <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo"> <span>Admin</span></a>
+    <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo">
+      <span>Admin</span></a>
     <!--hamburgerikon-->
     <div id="hamburger">
       <img src="/Images/menuebar_black.svg" alt="meny">
@@ -28,8 +29,29 @@
       </ul>
     </nav>
   </header>
-  
+
   <main>
+    <form id="updateForm">
+      <label for="nameUpdate">Name: </label>
+      <input type="text" id="nameUpdate">
+      <div id="foodSelection" class="foodSelection">
+        <label for="categoryUpdate">Category: </label>
+        <select name="categoryUpdate" id="categoryUpdate">
+          <option value="brunch">brunch</option>
+          <option value="dessert">dessert</option>
+        </select>
+      </div>
+      <div id="drinkSelection" class="drink Selection">
+        <label for="categoryUpdate">Category: </label>
+        <select name="categoryUpdate" id="categoryUpdate">
+          <option value="brunch">cold drink</option>
+          <option value="dessert">hot drink</option>
+        </select>
+      </div>
+      <label for="descriptionUpdate">Description (optional)</label>
+      <input type="text" id="descriptionUpdate">
+
+    </form>
 
   </main>
   <footer>
@@ -51,7 +73,7 @@
   <script type="module" src="/src/js/hamburger.js"></script>
   <script type="module" src="/src/js/checkAuth.js"></script>
   <script type="module" src="/src/js/updatemenu.js"></script>
-  
+
 </body>
 
 </html>

@@ -75,7 +75,7 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
             if (hasDeleteButton) {
                 menuList.innerHTML += `
             <i class="fa-solid fa-trash"></i><button data-id="${item._id}" class="deletebtn_${category}" id="delete_${item._id}">Delete</button>
-            <i class="fa-solid fa-pen"></i><button data-id="${item._id}" class="updatebtn_${category}">Update</button>
+            <i class="fa-solid fa-pen"></i><button data-id="${item._id}" class="updatebtn_${category}"><a href="/updatemenu">Update</a></button>
             `;
 
 
