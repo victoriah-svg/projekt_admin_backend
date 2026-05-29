@@ -17,6 +17,7 @@ export async function getFood() {
 //hämtar data med specifikt id från food-tabell
 export async function getOneFoodItem(id){
     console.log(id);
+    //console.log(updateDiv);
     try {
         //Hämtar maträtt med specifikt id som skickats med
         let response = await fetch(`http://localhost:3000/food/${id}`);
@@ -24,6 +25,7 @@ export async function getOneFoodItem(id){
         let result = await response.json();
         //console.log(result[0].name);
         //returnerar objektet som finns i arrayen result
+       // updateMenu(result[0], updateDiv);
         return result[0];
     } catch (error) {
         console.log(error);
@@ -90,4 +92,27 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
 
 
 }
+
+/*export async function updateMenu(menuItem, updateDiv){
+        updateDiv.innerHTML="";
+        updateDiv.innerHTML =`
+           <h2>Chosen item: </h2>
+           <p>${menuItem.name }  - ${menuItem.price}:- </p>
+           <form>
+                    <label for="nameUpdate">Name: </label>
+                    <input type="text" name="" id="nameUpdate">
+                    <label for="categoryUpdate">Category: </label>
+                    <select name="categoryUpdate" id="categoryUpdate">
+                        <option value="brunch">brunch</option>
+                        <option value="dessert">dessert</option>
+                    </select>
+                    <label for="priceUpdate">Price: </label>
+                    <input type="text" id="priceUpdate">
+                    <label for="descriptionUpdate">description (optional)</label>
+                    <input type="text" id="descriptionUpdate">
+                </form>`;
+        
+    }*/
+
+
 

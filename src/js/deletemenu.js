@@ -5,6 +5,7 @@ import { getDrinks } from "./library";
 import { printMenu } from "./library";
 import { getOneFoodItem } from "./library";
 
+
 document.addEventListener("DOMContentLoaded", async () => {
    
 
@@ -114,10 +115,22 @@ function attachUpdateListeners(){
         // console.log(btn);
         btn.addEventListener("click", async() => {
             let table = "food";
-           console.log("du klickade på update knappen " + btn.dataset.id);
+            
+           //anropar funktion som hämtar food med id som skickats med
            let foodItem = await getOneFoodItem(btn.dataset.id);
-           console.log(foodItem);
-            //getOneFoodItem(btn.dataset.id);
+          
+           //lagrar datan som hämtats från getOneFoodItem i ett objekt
+           let fetchedItem = {
+             id: foodItem._id,
+             name: foodItem.name,
+             category: foodItem.category,
+             price: foodItem.price
+
+           }
+
+           console.log(  fetchedItem);
+           //sparar objektet i localStorage
+           localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
         });
     });
 
@@ -188,4 +201,9 @@ async function deleteMenuItem(table, itemId) {
         console.log("Something went wrong " + error);
     }
 }
+
+
 //lägg till deletefunktion för food och drink
+async function updateMenuItem(){
+
+}
