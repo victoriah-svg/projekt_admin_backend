@@ -7,7 +7,7 @@ import { getOneFoodItem } from "./library";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-   
+
 
     //anropar getFood funktion som importerats från library.js
     let allFood = await getFood();
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //anropar funktion som renderar meny
     renderMenu(allFood, allDrinks);
-    
+
 });
 
 //RenderMenu funktion 
@@ -47,7 +47,7 @@ function renderMenu(food, drinks) {
 }
 
 //funktion som lägger till eventlyssnare deleteknappar
-function attachDeleteListeners(){
+function attachDeleteListeners() {
 
     //deleteknappar där klasser är deras kategori (brunch, dessert, cold eller hot)
     let deleteBtnsBrunch = document.querySelectorAll(".deletebtn_brunch");
@@ -101,7 +101,7 @@ function attachDeleteListeners(){
 }
 
 //funktion som lägger till eventlyssnare deleteknappar
-function attachUpdateListeners(){
+function attachUpdateListeners() {
 
     //deleteknappar där klasser är deras kategori (brunch, dessert, cold eller hot)
     let updateBtnsBrunch = document.querySelectorAll(".updatebtn_brunch");
@@ -113,36 +113,44 @@ function attachUpdateListeners(){
     //loopar igenom brunchknappar och lyssnar efter klick
     updateBtnsBrunch.forEach(btn => {
         // console.log(btn);
-        btn.addEventListener("click", async() => {
-            let table = "food";
-            
-           //anropar funktion som hämtar food med id som skickats med
-           let foodItem = await getOneFoodItem(btn.dataset.id);
-          
-           //lagrar datan som hämtats från getOneFoodItem i ett objekt
-           let fetchedItem = {
-             id: foodItem._id,
-             name: foodItem.name,
-             category: foodItem.category,
-             price: foodItem.price
+        btn.addEventListener("click", async () => {
+            //anropar funktion som hämtar food med id som skickats med
+            let foodItem = await getOneFoodItem(btn.dataset.id);
+            //lagrar datan som hämtats från getOneFoodItem i ett objekt
+            let fetchedItem = {
+                id: foodItem._id,
+                name: foodItem.name,
+                category: foodItem.category,
+                price: foodItem.price,
+                table: "food"
 
-           }
-
-           console.log(  fetchedItem);
-           //sparar objektet i localStorage
-           localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
+            }
+            //sparar objektet i localStorage
+            localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
         });
     });
 
     //loopar igenom dessertknappar och lyssnar efter klick
-   updateBtnsDesserts.forEach(btn => {
+    updateBtnsDesserts.forEach(btn => {
         //console.log(btn);
-        btn.addEventListener("click", () => {
-            let table = "food";
-            console.log("du klickade på update knappen " + btn.dataset.id);
+        btn.addEventListener("click", async () => {
+
+            //anropar funktion som hämtar food med id som skickats med
+            let foodItem = await getOneFoodItem(btn.dataset.id);
+            //lagrar datan som hämtats från getOneFoodItem i ett objekt
+            let fetchedItem = {
+                id: foodItem._id,
+                name: foodItem.name,
+                category: foodItem.category,
+                price: foodItem.price,
+                table: "food"
+
+            }
+            //sparar objektet i localStorage
+            localStorage.setItem("item_to_update", JSON.stringify(fetchedItem));
             //deleteMenuItem(table, btn.dataset.id);
         });
-    })
+    });
 
     //loopar igenom cold drinks knappar och lyssnar efter klick
     updateBtnsColdDrinks.forEach(btn => {
@@ -204,6 +212,6 @@ async function deleteMenuItem(table, itemId) {
 
 
 //lägg till deletefunktion för food och drink
-async function updateMenuItem(){
+async function updateMenuItem() {
 
 }

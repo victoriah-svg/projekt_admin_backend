@@ -24,8 +24,8 @@ function addChosenItem(chosenItemEl){
      pEl.innerText = parsedItem.name + " " + parsedItem.price + ":-";
 
      //om kategori är brunch eller dessert - lägg till dessa som options i select 
-     if(parsedItem.category === "brunch" || parsedItem.category === "dessert"){
-        console.log("brunch");
+     if(parsedItem.table === "food"){
+        console.log("food");
         
         selectionDiv.innerHTML = `<label for="categoryUpdate">Category: </label>
         <select name="categoryUpdate" id="categoryUpdate">
@@ -36,7 +36,7 @@ function addChosenItem(chosenItemEl){
           
      }else{
         //annars lägg till cold drink och hot drink som options
-        console.log("not brunch");
+        console.log("drink");
         selectionDiv.innerHTML = `<label for="categoryUpdate">Category: </label>
         <select name="categoryUpdate" id="categoryUpdate">
           <option value="cold drink">cold drink</option>
