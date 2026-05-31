@@ -15,8 +15,8 @@ export async function getFood() {
 }
 
 //hämtar data med specifikt id från food-tabell
-export async function getOneFoodItem(id){
-    
+export async function getOneFoodItem(id) {
+
     try {
         //Hämtar maträtt med specifikt id som skickats med
         let response = await fetch(`http://localhost:3000/food/${id}`);
@@ -27,7 +27,7 @@ export async function getOneFoodItem(id){
     } catch (error) {
         console.log(error);
     }
- }
+}
 
 //hämtar data från drink-tabell
 export async function getDrinks() {
@@ -45,7 +45,7 @@ export async function getDrinks() {
 }
 
 //hämtar data med specifikt id från drink-tabell
-export async function getOneDrinkItem(id){
+export async function getOneDrinkItem(id) {
     console.log(id);
     try {
         //Hämtar maträtt med specifikt id som skickats med
@@ -57,47 +57,49 @@ export async function getOneDrinkItem(id){
     } catch (error) {
         console.log(error);
     }
- }
+}
 
 
 //Skriver ut data i meny
 export function printMenu(menuData, category, menuList, hasDeleteButton) {
 
     menuData.forEach(item => {
-        //Om kategori är samma som den som skickats med - skriv ut i den den menuList som skickats med
+
         if (item.category === category) {
-            //om description finns med , skriv ut den också
+
+            const li = document.createElement("li");
+            li.id = item._id;
+
+            const itemSpan = document.createElement("span");
+            itemSpan.classList.add("item");
+            itemSpan.textContent = item.name;
+
+            const priceSpan = document.createElement("span");
+            priceSpan.classList.add("price");
+            priceSpan.textContent = `${item.price}:-`;
+
+            li.appendChild(itemSpan);
+            li.appendChild(priceSpan);
+
             if (item.description) {
-                menuList.innerHTML += `
-                <li>
-                    <span class="item">${item.name}</span>
-                    <span class="price">${item.price}:-</span>
-                    <span class="description">${item.description}</span>
-                </li>`;
+                const descSpan = document.createElement("span");
+                descSpan.classList.add("description");
+                descSpan.textContent = item.description;
 
-            } else {
-                //om description inte finns med - skriv bara ut name och price
-                menuList.innerHTML += `
-                <li>
-                    <span class="item">${item.name}</span>
-                    <span class="price">${item.price}:-</span>
-                </li>`;
+                li.appendChild(descSpan);
             }
-            //om deletebtn = true så skriv ut knappar för delete och update 
+
             if (hasDeleteButton) {
-                menuList.innerHTML += `
-            <div class="deleteBtnDiv"><i class="fa-solid fa-trash"></i><button data-id="${item._id}" class="deletebtn_${category}" id="delete_${item._id}">Delete</button></div>
-            <div class="updateBtnDiv"><i class="fa-solid fa-pen"></i><button data-id="${item._id}" class="updatebtn_${category}">Update</button></div>
-            `;
-
-
+                li.innerHTML += `
+               <div class="deleteBtnDiv"><i class="fa-solid fa-trash"></i><button data-id="${item._id}" class="deletebtn_${category}" id="delete_${item._id}">Delete</button></div>
+             <div class="updateBtnDiv"><i class="fa-solid fa-pen"></i><button data-id="${item._id}" class="updatebtn_${category}">Update</button></div>
+               `;
             }
 
 
 
+            menuList.appendChild(li);
         }
-
-
 
     });
 
