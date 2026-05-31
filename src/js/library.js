@@ -86,8 +86,8 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
             //om deletebtn = true så skriv ut knappar för delete och update 
             if (hasDeleteButton) {
                 menuList.innerHTML += `
-            <i class="fa-solid fa-trash"></i><button data-id="${item._id}" class="deletebtn_${category}" id="delete_${item._id}">Delete</button>
-            <i class="fa-solid fa-pen"></i><button data-id="${item._id}" class="updatebtn_${category}">Update</button>
+            <div class="deleteBtnDiv"><i class="fa-solid fa-trash"></i><button data-id="${item._id}" class="deletebtn_${category}" id="delete_${item._id}">Delete</button></div>
+            <div class="updateBtnDiv"><i class="fa-solid fa-pen"></i><button data-id="${item._id}" class="updatebtn_${category}">Update</button></div>
             `;
 
 
