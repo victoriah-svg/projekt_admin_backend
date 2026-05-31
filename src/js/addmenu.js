@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (tableSelect.value === "food") {
             console.log("du valde food");
             selectDiv.innerHTML = `
-            <label for="foodCategoryAdd">Category</label>
-                <select id="foodCategoryAdd">
+            <label for="categoryAdd">Category</label>
+                <select id="categoryAdd">
                     <option value="brunch">brunch</option>
                     <option value="dessert">dessert</option>
                 </select>
@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
             //annars (value är drink) - lägg till select dropdown med cold drink och hot drink
             console.log("du valde drink");
             selectDiv.innerHTML = `
-            <label for="drinkCategoryAdd">Category</label>
-                <select id="drinkCategoryAdd">
+            <label for="categoryAdd">Category</label>
+                <select id="categoryAdd">
                     <option value="cold drink">cold drink</option>
                     <option value="hot drink">hot drink</option>
                 </select>
@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (tableSelect.value === "food") {
             console.log("du valde food");
             selectDiv.innerHTML = `
-            <label for="foodCategoryAdd">Category</label>
-                <select id="foodCategoryAdd">
+            <label for="categoryAdd">Category</label>
+                <select id="categoryAdd">
                     <option value="brunch">brunch</option>
                     <option value="dessert">dessert</option>
                 </select>
@@ -49,18 +49,22 @@ document.addEventListener("DOMContentLoaded", () => {
             //annars (value är drink)
             console.log("du valde drink");
             selectDiv.innerHTML = `
-            <label for="drinkCategoryAdd">Category</label>
-                <select id="drinkCategoryAdd">
+            <label for="categoryAdd">Category</label>
+                <select id="categoryAdd">
                     <option value="cold drink">cold drink</option>
                     <option value="hot drink">hot drink</option>
                 </select>
             `;
         }
 
+        
+
     });
 
     submitBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        //element för select kategori
+        const categoryInput = document.getElementById("categoryAdd");
         //div för errormeddelanden 
         const errorDiv = document.getElementById("errorDivAdd");
         //tömmer errorDiv mellan varje klick
@@ -70,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //inputvalues - sanerade och borttagna mellanslag
         const tableSelectValue = tableSelect.value.replace(/(<([^>]+)>)/ig, '');
         const nameValue = nameInput.value.trim().replace(/(<([^>]+)>)/ig, '');
-        //const categoryValue = categoryInput.value.trim().replace(/(<([^>]+)>)/ig, '');
+        const categoryValue = categoryInput.value.trim().replace(/(<([^>]+)>)/ig, '');
         const priceValue = priceInput.value.trim().replace(/(<([^>]+)>)/ig, '');
         const descriptionValue = descriptionInput.value.trim().replace(/(<([^>]+)>)/ig, '');
         const priceConvertNumb = Number(priceValue); //numbervalue konverterat till number
@@ -98,9 +102,40 @@ document.addEventListener("DOMContentLoaded", () => {
             errorMessages.forEach(error => {
                 errorDiv.innerHTML += `<p>${error}</p>`;
             });
-        }
+        }else{
+            //om felmeddelandearray är tom 
 
-        console.log("table: " + tableSelectValue + " name: " + nameValue + " price: " + priceValue + " description: " + descriptionValue);
+            //variabel där objekt med inputvalues ska lagras
+            let itemToAdd;
+
+            //om description skickats med - lagra objekt med description
+            if(descriptionValue){
+                itemToAdd = {
+                    name: nameValue,
+                    category: categoryValue,
+                    price: priceConvertNumb,
+                    description: descriptionValue
+                }
+
+                
+            }else{
+                //om description INTE skickats med - lagra objekt UTAN description
+                itemToAdd = {
+                    name: nameValue,
+                    category: categoryValue,
+                    price: priceConvertNumb
+                }
+            }
+            
+
+            //om food har valts som table - anropa addMenuItem med itemToAdd och food som argument
+            if(tableSelectValue === "food"){
+                console.log(itemToAdd, tableSelectValue);
+            }else{
+                //om drink valts som table - anropa addMenuItem med itemToAdd och drink som argument
+                console.log(itemToAdd, tableSelectValue);
+            }
+        }
 
     });
 
