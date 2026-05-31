@@ -142,6 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function addMenuItem(item, table) {
+    //div där meddelande skrivs ut efter fetch anrop
+    const messageDiv = document.getElementById("addedItemSection");
+
     try {
         //hämta in token 
         const token = localStorage.getItem("cv_token");
@@ -158,11 +161,10 @@ async function addMenuItem(item, table) {
 
         const data = await response.json(); //konverterar svaret från json 
 
-        /*//lägger till meddelande: food/drink updated i DOM
-        updatedItemSection.innerHTML = `<p id=updateMsg>${data.message}</p><a href="/">See updated menu</a>`;
-       
-        return data;*/
-        console.log(data);
+        //lägger till meddelande: food/drink updated i DOM
+        messageDiv.innerHTML = `<p id=addedMsg> Added <b>${data.name}  -  ${data.price}:- </b> to the menu</p><a href="/">See updated menu</a>`;
+        return data;
+
     } catch (error) {
         console.log(error);
     }
