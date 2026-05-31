@@ -72,6 +72,7 @@ async function deleteMessage(btnId){
         });
         //lagrar resultatet
         const result = await response.json();
+        //anropar funktion för att hämta om meddelanden 
         getMessages();
 
     } catch (error) {
