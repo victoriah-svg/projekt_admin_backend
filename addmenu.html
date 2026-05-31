@@ -33,7 +33,7 @@
     <h1>Add item to menu</h1>
     <div id="errorDivAdd"></div>
     <form id="addMenuForm">
-      <label for="selectTableAdd"></label>
+      <label for="selectTableAdd">To which menue would you like to add an item?</label>
       <select name="selectTableAdd" id="selectTableAdd">
         <option value="food">food</option>
         <option value="drink">drink</option>
@@ -47,6 +47,7 @@
       <input type="text" id="priceInputAdd">
       <label for="descriptionInputAdd">Description: </label>
       <input type="text" id="descriptionInputAdd">
+      <input type="submit" id="submitbtnAdd" value="Add item">
     </form>
 
   </main>
@@ -68,6 +69,7 @@
   <script type="module" src="/src/js/main.js"></script>
   <script type="module" src="/src/js/hamburger.js"></script>
   <script type="module" src="/src/js/checkAuth.js"></script>
+  <script type="module" src="/src/js/addmenu.js"></script>
 </body>
 
 </html>
