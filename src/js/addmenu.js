@@ -11,27 +11,27 @@ document.addEventListener("DOMContentLoaded", () => {
     //tömmer selectDiv i början
     selectDiv.innerHTML = "";
 
-     //om value är food - lägg till select dropdown med brunch och dessert
-        if (tableSelect.value === "food") {
-            console.log("du valde food");
-            selectDiv.innerHTML = `
+    //om value är food - lägg till select dropdown med brunch och dessert
+    if (tableSelect.value === "food") {
+        console.log("du valde food");
+        selectDiv.innerHTML = `
             <label for="categoryAdd">Category</label>
                 <select id="categoryAdd">
                     <option value="brunch">brunch</option>
                     <option value="dessert">dessert</option>
                 </select>
             `;
-        } else {
-            //annars (value är drink) - lägg till select dropdown med cold drink och hot drink
-            console.log("du valde drink");
-            selectDiv.innerHTML = `
+    } else {
+        //annars (value är drink) - lägg till select dropdown med cold drink och hot drink
+        console.log("du valde drink");
+        selectDiv.innerHTML = `
             <label for="categoryAdd">Category</label>
                 <select id="categoryAdd">
                     <option value="cold drink">cold drink</option>
                     <option value="hot drink">hot drink</option>
                 </select>
             `;
-        }
+    }
 
     //lyssna på ändring i select drop-down
     tableSelect.addEventListener("change", () => {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
         }
 
-        
+
 
     });
 
@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         (console.log(priceConvertNumb));
 
-         // kontroll om name eller price är tomt - felmeddelande
+        // kontroll om name eller price är tomt - felmeddelande
         if (!nameValue) {
             errorMessages.push("You have to specify name");
         }
 
-        if(!priceValue){
+        if (!priceValue) {
             errorMessages.push("You have to specify price");
         }
 
@@ -102,14 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
             errorMessages.forEach(error => {
                 errorDiv.innerHTML += `<p>${error}</p>`;
             });
-        }else{
+        } else {
             //om felmeddelandearray är tom 
 
             //variabel där objekt med inputvalues ska lagras
             let itemToAdd;
 
             //om description skickats med - lagra objekt med description
-            if(descriptionValue){
+            if (descriptionValue) {
                 itemToAdd = {
                     name: nameValue,
                     category: categoryValue,
@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     description: descriptionValue
                 }
 
-                
-            }else{
+
+            } else {
                 //om description INTE skickats med - lagra objekt UTAN description
                 itemToAdd = {
                     name: nameValue,
@@ -126,17 +126,44 @@ document.addEventListener("DOMContentLoaded", () => {
                     price: priceConvertNumb
                 }
             }
-            
+
 
             //om food har valts som table - anropa addMenuItem med itemToAdd och food som argument
-            if(tableSelectValue === "food"){
-                console.log(itemToAdd, tableSelectValue);
-            }else{
+            if (tableSelectValue === "food") {
+                addMenuItem(itemToAdd, tableSelectValue);
+            } else {
                 //om drink valts som table - anropa addMenuItem med itemToAdd och drink som argument
-                console.log(itemToAdd, tableSelectValue);
+                addMenuItem(itemToAdd, tableSelectValue);
             }
         }
 
     });
 
 });
+
+async function addMenuItem(item, table) {
+    try {
+        //hämta in token 
+        const token = localStorage.getItem("cv_token");
+
+        // fetch url med table (food eller drink) som skickats med i anropet samt id på item som ska updateras
+        const response = await fetch(`http://localhost:3000/${table}`, {
+            method: "POST",
+            headers: {
+                "authorization": "Bearer " + token,
+                "content-type": "Application/json"
+            },
+            body: JSON.stringify(item) //skickar med objektet som skickats med i anropet
+        });
+
+        const data = await response.json(); //konverterar svaret från json 
+
+        /*//lägger till meddelande: food/drink updated i DOM
+        updatedItemSection.innerHTML = `<p id=updateMsg>${data.message}</p><a href="/">See updated menu</a>`;
+       
+        return data;*/
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
