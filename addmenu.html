@@ -30,6 +30,24 @@
   </header>
   
   <main>
+    <h1>Add item to menu</h1>
+    <div id="errorDivAdd"></div>
+    <form id="addMenuForm">
+      <label for="selectTableAdd"></label>
+      <select name="selectTableAdd" id="selectTableAdd">
+        <option value="food">food</option>
+        <option value="drink">drink</option>
+      </select>
+      <label for="nameInputAdd">Name: </label>
+      <input type="text" id="nameInputAdd">
+      <label for="selectCategoryAdd">Category: </label>
+      <!--Div där selectoptions kommer läggas till beroende på vilken table som valts-->
+      <div id="selectionDivUpdate"></div>
+      <label for="priceInputAdd">Price: </label>
+      <input type="text" id="priceInputAdd">
+      <label for="descriptionInputAdd">Description: </label>
+      <input type="text" id="descriptionInputAdd">
+    </form>
 
   </main>
  <footer>
