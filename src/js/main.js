@@ -12,7 +12,7 @@ const loginLink = document.getElementById("loginLink");
 //om token finns i localStorage - användare inloggad - ändra till logout i meny
     if (localStorage.getItem("cv_token")) {
         loginLink.innerHTML = `
-        <button id="logout">Logga ut</button>
+        <button id="logout">Log out</button>
         `;
     } else {
         //annars ändra till login

@@ -99,3 +99,12 @@ p{
 footer{
     background-color: $bg-color;
 }
+
+/*logga ut knapp meny*/
+#logout{
+    border: none;
+    background-color: $bg-color;
+    font-family: $font-stack-main;
+    font-size: 1rem;
+    font-weight: bold;
+}
