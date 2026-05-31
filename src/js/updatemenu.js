@@ -136,11 +136,14 @@ async function updateMenu(menuItem, id, table) {
     const updatedItemSection = document.getElementById("updatedItemSection");
     updatedItemSection.innerHTML = "";
     try {
+        //hämta in token 
+        const token = localStorage.getItem("cv_token");
 
         // fetch url med table (food eller drink) som skickats med i anropet samt id på item som ska updateras
         const response = await fetch(`http://localhost:3000/${table}/${id}`, {
             method: "PUT",
             headers: {
+                 "authorization": "Bearer " + token,
                 "content-type": "Application/json"
             },
             body: JSON.stringify(menuItem) //skickar med objektet som skickats med i anropet
