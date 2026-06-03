@@ -3,7 +3,7 @@
 .deleteBtnDiv button,
 .updateBtnDiv button,
 #submitbtnAdd,
-.deletebtn {
+.deletebtn, .deletebtnBook {
     padding: 0.5rem 0.8rem 0.5rem 0.8rem;
     border-radius: 5px;
     border: 0.2px;
@@ -11,7 +11,7 @@
 }
 
 .deleteBtnDiv button,
-.deletebtn {
+.deletebtn, .deletebtnBook {
     background-color: #ED8231;
 }
 

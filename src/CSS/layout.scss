@@ -243,45 +243,64 @@ footer {
 }
 
 /*--Add menu sidan--*/
-#mainAdd{
+#mainAdd {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr ;
+    grid-template-rows: 1fr;
     padding-left: 2rem;
-    
+
 }
 
-#addDiv{
+#addDiv {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     width: 50%;
     justify-self: center;
-    
+
 }
 
-#addMenuForm{
+#addMenuForm {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
 
-#addMenuForm label{
+#addMenuForm label {
     display: block;
 }
 
-#submitbtnAdd{
-margin-top: 20px;
+#submitbtnAdd {
+    margin-top: 20px;
 }
 
 /*--Message sidan--*/
-#mainMsgs{
+#mainMsgs {
     display: flex;
     flex-direction: column;
     padding-left: 2rem;
-    
+
 }
 
-#messageSection article{
+#messageSection article {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    border: 0.5px solid rgb(163, 156, 156);
+    width: 50%;
+}
+
+/*Bookingsidan*/
+#mainBooking {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+}
+
+#messageDivBook {
+    color: green;
+}
+
+#bookingSection article {
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 5px;
@@ -339,7 +358,7 @@ margin-top: 20px;
         text-decoration: underline;
     }
 
-    .active a{
+    .active a {
         color: black;
     }
 
@@ -383,17 +402,19 @@ margin-top: 20px;
     }
 
     /*--add menu sidan--*/
-    #addDiv{
-    width: 100%;
+    #addDiv {
+        width: 100%;
     }
 
     /*--Message sidan--*/
-    #messageSection article{
+    #messageSection article {
         width: 70%;
 
     }
 
-
+    #bookingSection article {
+        width: 70%;
+    }
 
     /*---Meny---*/
 
@@ -447,7 +468,7 @@ margin-top: 20px;
         text-decoration: underline;
     }
 
-    .active a{
+    .active a {
         color: black;
     }
 
