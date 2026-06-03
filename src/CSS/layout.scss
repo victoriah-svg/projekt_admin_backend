@@ -228,6 +228,21 @@ footer {
     grid-area: 3/2/4/3;
 }
 
+/*----Update menu sidan----*/
+#mainUpdateMenu{
+    display: grid;
+    grid-template-rows: auto auto auto auto 1fr auto;
+    grid-template-columns: 1fr;
+    padding-left: 2rem;
+}
+
+#updateForm {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 1fr 1fr;
+}
+
+
 
 /*tabletläge*/
 @media screen and (min-width: 601px) and (max-width: 1024px) {
@@ -294,6 +309,29 @@ footer {
 /*-----------Mobilläge--------------*/
 
 @media screen and (max-width: 600px) {
+
+    /*--Menysection--*/
+    #menuSectionDelete {
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-items: center;
+}
+
+#menuSectionDelete h2 {
+    grid-area: 1/1/2/2;
+    font-size: 1.6rem;
+}
+
+#brunchSectionDelete {
+    grid-area: 2/1/3/2;
+    width: 70%;
+}
+
+#allDaySectionDelete {
+    grid-area: 3/1/4/2;
+    width: 70%;
+}
 
     /*---Meny---*/
 
