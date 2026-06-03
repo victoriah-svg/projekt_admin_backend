@@ -229,7 +229,7 @@ footer {
 }
 
 /*----Update menu sidan----*/
-#mainUpdateMenu{
+#mainUpdateMenu {
     display: grid;
     grid-template-rows: auto auto auto auto 1fr auto;
     grid-template-columns: 1fr;
@@ -242,7 +242,52 @@ footer {
     grid-template-columns: 1fr 1fr;
 }
 
+/*--Add menu sidan--*/
+#mainAdd{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr ;
+    padding-left: 2rem;
+    
+}
 
+#addDiv{
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    width: 50%;
+    justify-self: center;
+    
+}
+
+#addMenuForm{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+#addMenuForm label{
+    display: block;
+}
+
+#submitbtnAdd{
+margin-top: 20px;
+}
+
+/*--Message sidan--*/
+#mainMsgs{
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    
+}
+
+#messageSection article{
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    border: 0.5px solid rgb(163, 156, 156);
+    width: 50%;
+}
 
 /*tabletläge*/
 @media screen and (min-width: 601px) and (max-width: 1024px) {
@@ -294,6 +339,10 @@ footer {
         text-decoration: underline;
     }
 
+    .active a{
+        color: black;
+    }
+
     .topnav nav {
         display: flex;
         justify-content: center;
@@ -310,28 +359,41 @@ footer {
 
 @media screen and (max-width: 600px) {
 
-    /*--Menysection--*/
+    /*--Deletemenusidan Menysection--*/
     #menuSectionDelete {
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
+        width: 100%;
+        justify-items: center;
+    }
+
+    #menuSectionDelete h2 {
+        grid-area: 1/1/2/2;
+        font-size: 1.6rem;
+    }
+
+    #brunchSectionDelete {
+        grid-area: 2/1/3/2;
+        width: 70%;
+    }
+
+    #allDaySectionDelete {
+        grid-area: 3/1/4/2;
+        width: 70%;
+    }
+
+    /*--add menu sidan--*/
+    #addDiv{
     width: 100%;
-    justify-items: center;
-}
+    }
 
-#menuSectionDelete h2 {
-    grid-area: 1/1/2/2;
-    font-size: 1.6rem;
-}
+    /*--Message sidan--*/
+    #messageSection article{
+        width: 70%;
 
-#brunchSectionDelete {
-    grid-area: 2/1/3/2;
-    width: 70%;
-}
+    }
 
-#allDaySectionDelete {
-    grid-area: 3/1/4/2;
-    width: 70%;
-}
+
 
     /*---Meny---*/
 
@@ -383,6 +445,10 @@ footer {
         padding: 0;
         color: black;
         text-decoration: underline;
+    }
+
+    .active a{
+        color: black;
     }
 
     .topnav nav {

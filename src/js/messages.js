@@ -14,7 +14,7 @@ async function getMessages() {
     const messageSection = document.getElementById("messageSection");
 
     //tömmer messagesection mellan varje omgång
-     messageSection.innerHTML = "";
+    messageSection.innerHTML = "";
 
     try {
         //hämtar alla meddelanden och skickar med token i anrop
@@ -33,8 +33,8 @@ async function getMessages() {
             messageSection.innerHTML += `
             <article>
                 <p><strong>Name: </strong>${message.name}</p><p><strong>Email: </strong>${message.email}</p>
-                <p>${message.message}</p>
-                <button class="deletebtn" id="${message._id}">delete</button>
+                <p><strong>Message: </strong>${message.message}</p>
+                <button class="deletebtn" id="${message._id}">delete</button>      
             </article>`;
 
         });
@@ -57,7 +57,7 @@ async function getMessages() {
 
 }
 
-async function deleteMessage(btnId){
+async function deleteMessage(btnId) {
     //hämta in token 
     const token = localStorage.getItem("cv_token");
     try {
@@ -79,5 +79,5 @@ async function deleteMessage(btnId){
         console.log("Something went wrong " + error);
     }
 
-    
+
 }

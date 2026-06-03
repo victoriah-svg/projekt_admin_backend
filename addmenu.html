@@ -12,7 +12,8 @@
 
 <body>
   <header id="headerNav" class="topnav">
-   <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo"> <span>Admin</span></a>
+    <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo">
+      <span>Admin</span></a>
     <!--hamburgerikon-->
     <div id="hamburger">
       <img src="/Images/menuebar_black.svg" alt="meny">
@@ -28,31 +29,32 @@
       </ul>
     </nav>
   </header>
-  
-  <main>
-    <h1>Add item to menu</h1>
-    <div id="errorDivAdd"></div>
-    <form id="addMenuForm">
-      <label for="selectTableAdd">To which menue would you like to add an item?</label>
-      <select name="selectTableAdd" id="selectTableAdd">
-        <option value="food">food</option>
-        <option value="drink">drink</option>
-      </select>
-      <label for="nameInputAdd">Name: </label>
-      <input type="text" id="nameInputAdd">
-      
-      <!--Div där selectoptions kommer läggas till beroende på vilken table som valts-->
-      <div id="selectionDivUpdate"></div>
-      <label for="priceInputAdd">Price: </label>
-      <input type="text" id="priceInputAdd">
-      <label for="descriptionInputAdd">Description: </label>
-      <input type="text" id="descriptionInputAdd">
-      <input type="submit" id="submitbtnAdd" value="Add item">
-    </form>
-    <div id="addedItemSection"></div>
 
+  <main id="mainAdd">
+    <div id="addDiv">
+      <h1>Add item to menu</h1>
+      <div id="errorDivAdd"></div>
+      <form id="addMenuForm">
+        <label for="selectTableAdd">To which menue would you like to add an item?</label>
+        <select name="selectTableAdd" id="selectTableAdd">
+          <option value="food">food</option>
+          <option value="drink">drink</option>
+        </select>
+        <label for="nameInputAdd">Name: </label>
+        <input type="text" id="nameInputAdd">
+
+        <!--Div där selectoptions kommer läggas till beroende på vilken table som valts-->
+        <div id="selectionDivUpdate"></div>
+        <label for="priceInputAdd">Price: </label>
+        <input type="text" id="priceInputAdd">
+        <label for="descriptionInputAdd">Description: </label>
+        <input type="text" id="descriptionInputAdd">
+        <input type="submit" id="submitbtnAdd" value="Add item">
+      </form>
+      <div id="addedItemSection"></div>
+    </div>
   </main>
- <footer>
+  <footer>
     <section>
       <p><strong>&copy; Cats & Coffee Admin</strong></p>
       <a href="">Go to visitor webpage (opens in new tab)</a>
