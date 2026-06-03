@@ -234,13 +234,29 @@ footer {
     grid-template-rows: auto auto auto auto 1fr auto;
     grid-template-columns: 1fr;
     padding-left: 2rem;
+    
+}
+
+#updateMenudiv{
+    display: auto auto auto auto 1fr auto;
+    width: 50%;
+    justify-self: center;
 }
 
 #updateForm {
-    display: grid;
-    grid-template-rows: auto auto auto auto auto;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
+
+#updateForm label {
+    display: block;
+}
+
+#submitUpdate{
+    margin-top: 20px;
+}
+
 
 /*--Add menu sidan--*/
 #mainAdd {
@@ -404,6 +420,11 @@ footer {
     /*--add menu sidan--*/
     #addDiv {
         width: 100%;
+    }
+
+    /*--Update menu sidan--*/
+    #updateMenudiv{
+         width: 100%;
     }
 
     /*--Message sidan--*/

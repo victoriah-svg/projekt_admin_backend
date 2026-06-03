@@ -3,7 +3,7 @@
 .deleteBtnDiv button,
 .updateBtnDiv button,
 #submitbtnAdd,
-.deletebtn, .deletebtnBook {
+.deletebtn, .deletebtnBook, #submitUpdate {
     padding: 0.5rem 0.8rem 0.5rem 0.8rem;
     border-radius: 5px;
     border: 0.2px;
@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 
-input:not(#submitbtnAdd),
+input:not(#submitbtnAdd, #submitUpdate),
 select {
     width: 250px;
     height: 30px;
@@ -42,15 +42,21 @@ select {
     border: 0.2px solid rgb(145, 144, 144);
 }
 
-#submitbtnAdd {
+#submitbtnAdd, #submitUpdate {
     background-color: #DB8B0C;
     width: 250px;
     font-family: base.$p-font;
     font-weight: bold;
-
 }
+
+
 
 #submitbtnAdd:hover {
     opacity: 0.9;
+    cursor: pointer;
+}
+
+#submitUpdate:hover {
+     opacity: 0.9;
     cursor: pointer;
 }
