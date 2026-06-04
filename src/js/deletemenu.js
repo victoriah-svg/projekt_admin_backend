@@ -210,7 +210,9 @@ function attachUpdateListeners() {
 
 //funktion för att radera item från menyn
 async function deleteMenuItem(table, itemId) {
-    console.log("du klickade på knappen" + itemId + table);
+    
+    const updateDiv = document.getElementById("updateDiv");
+    updateDiv.innerHTML= ""; //tömmer div mellan varje gång
 
     //hämta in token 
     const token = localStorage.getItem("cv_token");
@@ -228,6 +230,8 @@ async function deleteMenuItem(table, itemId) {
         const result = await response.json();
         let newGetDrinks = await getDrinks();
         let newGetFood = await getFood();
+        //skriver ut att delete gjorts
+        updateDiv.innerHTML =`Item deleted from menu!`;
 
         //anropar render-funktion för att rendera om sidan
         renderMenu(newGetFood, newGetDrinks);
@@ -237,8 +241,3 @@ async function deleteMenuItem(table, itemId) {
     }
 }
 
-
-//lägg till deletefunktion för food och drink
-async function updateMenuItem() {
-
-}

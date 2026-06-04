@@ -248,6 +248,10 @@ footer {
 .updateBtnDiv {
     grid-area: 3/2/4/3;
 }
+/*Div där text skrivs ut när delete gjorts*/
+#updateDiv{
+    color: green;
+}
 
 /*----Update menu sidan----*/
 #mainUpdateMenu {
@@ -278,6 +282,9 @@ footer {
     margin-top: 20px;
 }
 
+#updatedItemSection p{
+    color: green;
+}
 
 /*--Add menu sidan--*/
 #mainAdd {
