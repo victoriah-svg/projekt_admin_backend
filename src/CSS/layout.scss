@@ -71,6 +71,27 @@ footer {
     grid-template-rows: 1fr;
 }
 
+/*---Logga in sida---*/
+#mainLogin{
+    display: grid;
+}
+
+#loginDiv{
+    width: 50%;
+    justify-self: center;
+    padding-top: 2rem;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+#submitLogin{
+    margin-top: 1rem;
+}
+
 /*----Startsida----*/
 #mainHome {
     display: grid;

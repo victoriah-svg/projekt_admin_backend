@@ -12,7 +12,8 @@
 
 <body>
   <header id="headerNav" class="topnav">
-  <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo"> <span>Admin</span></a>
+    <a href="/" id="logoLink"><img src="/Images/logo_projekt.svg" alt="Cats and coffee" id="logo">
+      <span>Admin</span></a>
     <!--hamburgerikon-->
     <div id="hamburger">
       <img src="/Images/menuebar_black.svg" alt="meny">
@@ -28,22 +29,23 @@
       </ul>
     </nav>
   </header>
-  
-  <main>
-    <h1>Log in</h1>
-    <p>Please fill in the information below</p>
-    <div id="errorDivLogin"></div>
-    <form id="loginForm">
+
+  <main id="mainLogin">
+    <div id="loginDiv">
+      <h1>Log in</h1>
+      <p>Please fill in the information below</p>
+      <div id="errorDivLogin"></div>
+      <form id="loginForm">
         <label for="usernameLogin">Username: </label>
         <input type="text" id="usernameLogin">
         <label for="passwordLogin">Password: </label>
         <input type="password" id="passwordLogin">
-        <input type="submit" value="Log in">
-    </form>
-    <p>Don't have an account yet? <a href="/register">Register here</a></p>
-
+        <input type="submit" value="Log in" id="submitLogin">
+      </form>
+      <p>Don't have an account yet? <a href="/register">Register here</a></p>
+    </div>
   </main>
- <footer>
+  <footer>
     <section>
       <p><strong>&copy; Cats & Coffee Admin</strong></p>
       <a href="">Go to visitor webpage (opens in new tab)</a>
@@ -60,7 +62,7 @@
   </footer>
   <script type="module" src="/src/js/main.js"></script>
   <script type="module" src="/src/js/hamburger.js"></script>
-   <script type="module" src="/src/js/login.js"></script>
+  <script type="module" src="/src/js/login.js"></script>
 </body>
 
 </html>

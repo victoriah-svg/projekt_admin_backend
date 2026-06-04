@@ -3,7 +3,10 @@
 .deleteBtnDiv button,
 .updateBtnDiv button,
 #submitbtnAdd,
-.deletebtn, .deletebtnBook, #submitUpdate {
+.deletebtn,
+.deletebtnBook,
+#submitUpdate,
+#submitLogin {
     padding: 0.5rem 0.8rem 0.5rem 0.8rem;
     border-radius: 5px;
     border: 0.2px;
@@ -11,7 +14,8 @@
 }
 
 .deleteBtnDiv button,
-.deletebtn, .deletebtnBook {
+.deletebtn,
+.deletebtnBook {
     background-color: #ED8231;
 }
 
@@ -34,7 +38,12 @@
     cursor: pointer;
 }
 
-input:not(#submitbtnAdd, #submitUpdate),
+#submitLogin:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+input:not(#submitbtnAdd, #submitUpdate, #submitLogin),
 select {
     width: 250px;
     height: 30px;
@@ -42,7 +51,9 @@ select {
     border: 0.2px solid rgb(145, 144, 144);
 }
 
-#submitbtnAdd, #submitUpdate {
+#submitbtnAdd,
+#submitUpdate,
+#submitLogin {
     background-color: #DB8B0C;
     width: 250px;
     font-family: base.$p-font;
@@ -57,6 +68,6 @@ select {
 }
 
 #submitUpdate:hover {
-     opacity: 0.9;
+    opacity: 0.9;
     cursor: pointer;
 }
