@@ -44,6 +44,9 @@ async function registerUser(e) {
         try {
             //hämta in token 
             const token = localStorage.getItem("cv_token");
+            //div för att skriva ut meddelande när någon registrerats
+            const messageEl = document.getElementById("registerMessage");
+            messageEl.innerHTML = ""; //tömmer mellan varje omgång
             //gör postanrop register-route och skickar med user
             const response = await fetch("http://localhost:3000/authAPI/register",
                 {
@@ -60,7 +63,8 @@ async function registerUser(e) {
             if (response.ok) {
                 const data = await response.json();
                 //Dirigerar om till login-sidan
-                window.location.href = "login.html";
+               // window.location.href = "login.html";
+               messageEl.innerHTML = `User registered! <a href="/"> Go to homepage</a>`;
             } else {
                 throw error;
             }
