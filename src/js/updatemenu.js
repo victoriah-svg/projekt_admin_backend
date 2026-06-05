@@ -140,7 +140,7 @@ async function updateMenu(menuItem, id, table) {
         const token = localStorage.getItem("cv_token");
 
         // fetch url med table (food eller drink) som skickats med i anropet samt id på item som ska updateras
-        const response = await fetch(`http://localhost:3000/${table}/${id}`, {
+        const response = await fetch(`https://projekt-backend-1-3c57.onrender.com/${table}/${id}`, {
             method: "PUT",
             headers: {
                  "authorization": "Bearer " + token,

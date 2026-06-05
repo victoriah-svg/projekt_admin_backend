@@ -16,7 +16,7 @@ async function getBookings() {
 
     try {
         //hämtar alla meddelanden och skickar med token i anrop
-        const response = await fetch('http://localhost:3000/book', {
+        const response = await fetch('https://projekt-backend-1-3c57.onrender.com/book', {
             method: "GET",
             headers: {
                 "authorization": "Bearer " + token,
@@ -66,7 +66,7 @@ async function deleteBooking(id) {
     const token = localStorage.getItem("cv_token");
     try {
         //tar bort bokning med ett visst id
-        const response = await fetch('http://localhost:3000/book/' + id, {
+        const response = await fetch('https://projekt-backend-1-3c57.onrender.com/book/' + id, {
             method: "DELETE",
             headers: {
                 "authorization": "Bearer " + token, //skickar med token 

@@ -144,13 +144,14 @@ document.addEventListener("DOMContentLoaded", () => {
 async function addMenuItem(item, table) {
     //div där meddelande skrivs ut efter fetch anrop
     const messageDiv = document.getElementById("addedItemSection");
-
+    //tömmer meddelandediv mellan varje omgång
+    messageDiv.innerHTML="";
     try {
         //hämta in token 
         const token = localStorage.getItem("cv_token");
 
         // fetch url med table (food eller drink) som skickats med i anropet samt id på item som ska updateras
-        const response = await fetch(`http://localhost:3000/${table}`, {
+        const response = await fetch(`https://projekt-backend-1-3c57.onrender.com/${table}`, {
             method: "POST",
             headers: {
                 "authorization": "Bearer " + token,
@@ -160,9 +161,13 @@ async function addMenuItem(item, table) {
         });
 
         const data = await response.json(); //konverterar svaret från json 
-
-        //lägger till meddelande: food/drink updated i DOM
+        if(response.ok){
+            //lägger till meddelande: food/drink updated i DOM
         messageDiv.innerHTML = `<p id=addedMsg> Added <b>${data.name}  -  ${data.price}:- </b> to the menu</p><a href="/">See updated menu</a>`;
+        } else{
+            messageDiv.innerHTML="Could not add item to the menu, please try again";
+        }
+        
         return data;
 
     } catch (error) {

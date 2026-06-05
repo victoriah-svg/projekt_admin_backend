@@ -40,7 +40,7 @@ async function loginUser(e) {
         }
         try {
             //gör postanrop login-route och skickar med user
-            const response = await fetch("http://localhost:3000/authAPI/login",
+            const response = await fetch("https://projekt-backend-1-3c57.onrender.com/authAPI/login",
                 {
                     method: "POST",
                     headers: {

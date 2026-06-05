@@ -5,7 +5,7 @@
 export async function getFood() {
     try {
         //Hämtar alla maträtter
-        let response = await fetch("http://localhost:3000/food");
+        let response = await fetch("https://projekt-backend-1-3c57.onrender.com/food");
         //konverterar svaret från json
         let result = await response.json();
         return result
@@ -19,7 +19,7 @@ export async function getOneFoodItem(id) {
 
     try {
         //Hämtar maträtt med specifikt id som skickats med
-        let response = await fetch(`http://localhost:3000/food/${id}`);
+        let response = await fetch(`https://projekt-backend-1-3c57.onrender.com/food/${id}`);
         //konverterar svaret från json
         let result = await response.json();
         //returnerar objektet som finns i arrayen result
@@ -34,7 +34,7 @@ export async function getDrinks() {
 
     try {
         //Hämtar all dryck
-        let response = await fetch("http://localhost:3000/drink");
+        let response = await fetch("https://projekt-backend-1-3c57.onrender.com/drink");
         //konverterar svaret från json
         let result = await response.json();
         return result;
@@ -49,7 +49,7 @@ export async function getOneDrinkItem(id) {
     console.log(id);
     try {
         //Hämtar maträtt med specifikt id som skickats med
-        let response = await fetch(`http://localhost:3000/drink/${id}`);
+        let response = await fetch(`https://projekt-backend-1-3c57.onrender.com/drink/${id}`);
         //konverterar svaret från json
         let result = await response.json();
         //returnerar objektet som finns i arrayen result

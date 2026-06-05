@@ -18,7 +18,7 @@ async function getMessages() {
 
     try {
         //hämtar alla meddelanden och skickar med token i anrop
-        const response = await fetch('http://localhost:3000/message', {
+        const response = await fetch('https://projekt-backend-1-3c57.onrender.com/message', {
             method: "GET",
             headers: {
                 "authorization": "Bearer " + token,
@@ -62,7 +62,7 @@ async function deleteMessage(btnId) {
     const token = localStorage.getItem("cv_token");
     try {
         //tar bort ett meddelande med ett visst id
-        const response = await fetch('http://localhost:3000/message/' + btnId, {
+        const response = await fetch('https://projekt-backend-1-3c57.onrender.com/message/' + btnId, {
             method: "DELETE",
             headers: {
                 "authorization": "Bearer " + token,

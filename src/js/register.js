@@ -48,7 +48,7 @@ async function registerUser(e) {
             const messageEl = document.getElementById("registerMessage");
             messageEl.innerHTML = ""; //tömmer mellan varje omgång
             //gör postanrop register-route och skickar med user
-            const response = await fetch("http://localhost:3000/authAPI/register",
+            const response = await fetch("https://projekt-backend-1-3c57.onrender.com/authAPI/register",
                 {
                     method: "POST",
                     headers: {

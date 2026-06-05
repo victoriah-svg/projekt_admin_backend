@@ -218,7 +218,7 @@ async function deleteMenuItem(table, itemId) {
     const token = localStorage.getItem("cv_token");
     try {
         //tar bort ett meddelande med ett visst id
-        const response = await fetch(`http://localhost:3000/${table}/${itemId}`, {
+        const response = await fetch(`https://projekt-backend-1-3c57.onrender.com/${table}/${itemId}`, {
             method: "DELETE",
             headers: {
                 "authorization": "Bearer " + token,
