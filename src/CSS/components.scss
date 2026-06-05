@@ -6,7 +6,8 @@
 .deletebtn,
 .deletebtnBook,
 #submitUpdate,
-#submitLogin {
+#submitLogin,
+#submitRegister {
     padding: 0.5rem 0.8rem 0.5rem 0.8rem;
     border-radius: 5px;
     border: 0.2px;
@@ -15,7 +16,8 @@
 
 .deleteBtnDiv button,
 .deletebtn,
-.deletebtnBook {
+.deletebtnBook,
+#submitRegister {
     background-color: #ED8231;
 }
 
@@ -39,6 +41,11 @@
 }
 
 #submitLogin:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+#submitRegister:hover{
     opacity: 0.9;
     cursor: pointer;
 }

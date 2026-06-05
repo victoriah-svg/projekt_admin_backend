@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.getElementById("registerForm");
     registerForm.addEventListener("submit", registerUser)
 
-   
+
 });
 
 async function registerUser(e) {
@@ -42,11 +42,14 @@ async function registerUser(e) {
             password: passwordInput
         }
         try {
+            //hämta in token 
+            const token = localStorage.getItem("cv_token");
             //gör postanrop register-route och skickar med user
             const response = await fetch("http://localhost:3000/authAPI/register",
                 {
                     method: "POST",
                     headers: {
+                        "authorization": "Bearer " + token,
                         "content-type": "application/json"
                     },
                     body: JSON.stringify(user)
@@ -68,6 +71,6 @@ async function registerUser(e) {
         }
     }
 
-   
+
 
 }

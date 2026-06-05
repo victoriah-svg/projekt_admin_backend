@@ -8,17 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
 function changeNavLink() {
 //li-element i nav för login
 const loginLink = document.getElementById("loginLink");
+const registerLink = document.getElementById("registerLink");
 
-//om token finns i localStorage - användare inloggad - ändra till logout i meny
+//om token finns i localStorage - användare inloggad - ändra till logout i meny och lägg till länk för registrering i footer
     if (localStorage.getItem("cv_token")) {
         loginLink.innerHTML = `
         <button id="logout">Log out</button>
         `;
+
+        registerLink.innerHTML=`
+        <a href="/register">Registrera ny användare</a>`;
     } else {
         //annars ändra till login
         loginLink.innerHTML = `
         <a href="/login">Log in</a>
         `;
+
+        registerLink.innerHTML="";
     }
 
     //Logga ut knapp
