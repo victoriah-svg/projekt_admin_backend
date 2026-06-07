@@ -62,9 +62,10 @@ export async function getOneDrinkItem(id) {
 
 //Skriver ut data i meny
 export function printMenu(menuData, category, menuList, hasDeleteButton) {
-
+//loopar igenom menydata som skickats med
     menuData.forEach(item => {
-
+        /*om kategori för datan är samma som kategorin som skickats med 
+        - skapa listelement med datan som innehåll*/
         if (item.category === category) {
 
             const li = document.createElement("li");
@@ -80,7 +81,7 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
 
             li.appendChild(itemSpan);
             li.appendChild(priceSpan);
-
+            //om datan har description - skriv ut denna också 
             if (item.description) {
                 const descSpan = document.createElement("span");
                 descSpan.classList.add("description");
@@ -88,7 +89,7 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
 
                 li.appendChild(descSpan);
             }
-
+            //om true har skickats med för hasDeleteButton - skriv ut deleteknapp och updateknapp
             if (hasDeleteButton) {
                 li.innerHTML += `
                <div class="deleteBtnDiv"><i class="fa-solid fa-trash"></i><button data-id="${item._id}" class="deletebtn_${category}" id="delete_${item._id}">Delete</button></div>
@@ -97,7 +98,7 @@ export function printMenu(menuData, category, menuList, hasDeleteButton) {
             }
 
 
-
+            //lägg till li-elementet i listan som skickats med
             menuList.appendChild(li);
         }
 

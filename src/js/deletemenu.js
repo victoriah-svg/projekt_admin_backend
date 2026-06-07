@@ -59,17 +59,17 @@ function attachDeleteListeners() {
 
     //loopar igenom brunchknappar och lyssnar efter klick
     deleteBtnsBrunch.forEach(btn => {
-        // console.log(btn);
+        
         btn.addEventListener("click", () => {
             let table = "food";
-            //console.log("du klickade på knappen " + btn.dataset.id);
+            
             deleteMenuItem(table, btn.dataset.id);
         });
     });
 
     //loopar igenom dessertknappar och lyssnar efter klick
     deleteBtnsDesserts.forEach(btn => {
-        //console.log(btn);
+        
         btn.addEventListener("click", () => {
             let table = "food";
             deleteMenuItem(table, btn.dataset.id);
@@ -78,21 +78,21 @@ function attachDeleteListeners() {
 
     //loopar igenom cold drinks knappar och lyssnar efter klick
     deleteBtnsColdDrinks.forEach(btn => {
-        //console.log(btn);
+        
         btn.addEventListener("click", () => {
             //namn på tabell som skickas med som argument i deleteMenuItem
             let table = "drink";
-            //console.log("du klickade på knappen " + btn.dataset.id);
+            
             deleteMenuItem(table, btn.dataset.id);
         });
     })
 
     //loopar igenom hot drinks knappar och lyssnar efter klick
     deleteBtnsHotDrinks.forEach(btn => {
-        //console.log(btn);
+        
         btn.addEventListener("click", () => {
             let table = "drink";
-            // console.log("du klickade på knappen " + btn.dataset.id);
+            
             deleteMenuItem(table, btn.dataset.id);
         });
     })
