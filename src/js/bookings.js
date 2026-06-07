@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //div där meddelande ska skrivas ut efter fetch
     const messageDiv = document.getElementById("messageDivBook");
     //tömmer mellan varje omgång
-    messageDiv.innerHTML ="";
+    messageDiv.innerHTML = "";
     getBookings();
 });
 
@@ -29,10 +29,15 @@ async function getBookings() {
         console.log(result);
         //loopar igenom array med result och skriver ut till DOM
         result.forEach(booking => {
+            //gör om datum till date-objekt för att kunna lägga in i article
+            const date = new Date(booking.date);
+
+            const formattedDate = date.toLocaleDateString("sv-SE");
+
             bookingSection.innerHTML += `
             <article>
                 <p><strong>Name: </strong>${booking.name}</p><p><strong>Email: </strong>${booking.email}</p>
-                <p><strong>Phone number: </strong>${booking.phone}</p><p><strong>Date: </strong>${booking.date}</p>
+                <p><strong>Phone number: </strong>${booking.phone}</p><p><strong>Date: </strong>${formattedDate}</p>
                 <p><strong>Time: </strong>${booking.time}</p><p><strong>Number of people: </strong>${booking.peoplenr}</p>
                 
                 <button class="deletebtnBook" id="${booking._id}">delete</button>
