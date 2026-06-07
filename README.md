@@ -1,4 +1,4 @@
-# Webbtjänst - Projektuppgift - Backend-baserad Webbutveckling Mittuniversitetet
+# Administrationsgränssnitt - Projektuppgift - Backend-baserad Webbutveckling Mittuniversitetet
 
 ##  Syfte
 
