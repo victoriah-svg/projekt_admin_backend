@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let hotDrink = "hot drink";
     
 
-    //anropar printFood från library.js med data som hämtats från getFood, samt argument för att skriva ut i brunchlist
+    //anropar printFood från library.js med data som hämtats från getFood, samt argument för att skriva ut i meny
     printMenu(allFood, brunch, brunchList, false);
     //anropar printFood för dessert
     printMenu(allFood, dessert, dessertList, false);
