@@ -21,6 +21,6 @@ npm run dev
 
 
 
-#### 🌟 Länk till live-version av API:et:
+#### 🌟 Länk till publicerad webbplats:
 länk https://catsandcoffeeadmin.netlify.app/login.html
 
